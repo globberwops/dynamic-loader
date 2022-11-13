@@ -1,0 +1,10 @@
+---
+InheritParentConfig: true
+# Disable warnings for GoogleTest macros
+Checks: >
+  -cppcoreguidelines-avoid-goto,
+  -cppcoreguidelines-avoid-magic-numbers,
+  -cppcoreguidelines-avoid-non-const-global-variables,
+  -cppcoreguidelines-owning-memory,
+  -modernize-use-trailing-return-type,
+  -readability-magic-numbers

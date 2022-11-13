@@ -1,0 +1,3 @@
+#pragma once
+
+static constexpr auto kProjectBinaryDir = "@PROJECT_BINARY_DIR@";

@@ -1,0 +1,25 @@
+{
+	"name": "C++",
+	"build": {
+		"dockerfile": "Dockerfile",
+		"args": {
+			"REINSTALL_CMAKE_VERSION_FROM_SOURCE": "3.21.7"
+		}
+	},
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"cheshirekow.cmake-format",
+				"redhat.vscode-yaml"
+			],
+			"settings": {
+				"files.associations": {
+					".clang-format": "yaml",
+					".clang-tidy": "yaml",
+					".cmake-format": "yaml",
+					"*.cmake.in": "cmake"
+				}
+			}
+		}
+	}
+}
