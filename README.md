@@ -16,7 +16,7 @@ It provides a modern C++ interface built on top of the Linux [dlopen()](https://
 * Header-only
 * Throws exceptions
 * Clean warning-free codebase
-* Small self-contained code base
+* Small self-contained codebase
 
 ## Limitations
 
@@ -30,7 +30,7 @@ try {
   auto dynamic_loader = DynamicLoader{"<path/to/lib>"};
   auto mangled_name = dynamic_loader.Mangle("Square");
   auto function = dynamic_loader.Lookup<int(int)>(mangled_name);
-  assert(func(2) == 4);
+  assert(function(2) == 4);
 } catch (const std::exception& ex) {
   std::cout << ex.what() << '\n';
 }
