@@ -42,6 +42,10 @@ class DynamicLoader {
     struct link_map *link_map{};
     dlinfo(handle.get(), RTLD_DI_LINKMAP, &link_map);
 
+    if (auto *error = dlerror(); error != nullptr) {
+      throw std::runtime_error{error};
+    }
+
     Elf64_Sym *symbol_table{};
     char *string_table{};
     int symbol_entries{};
@@ -73,6 +77,6 @@ class DynamicLoader {
       }
     }
 
-    throw std::runtime_error{"Symbol not found: " + symbol};
+    throw std::runtime_error{symbol + ": cannot mangle symbol name: No such symbol"};
   }
 };
