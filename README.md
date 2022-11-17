@@ -6,7 +6,7 @@ DynamicLoader is an open-source header-only library providing a modern interface
 
 It provides a modern C++ interface built on top of the Linux [dlopen()](https://man7.org/linux/man-pages/man3/dlopen.3.html) API.
 
-<!-- Compiler Explorer -->
+Try DynamicLoader in [Compiler Explorer](https://godbolt.org/z/KvGxYhErh).
 
 ## Features
 
