@@ -2,9 +2,8 @@
 
 ![Linux](https://github.com/globberwops/dynamic-loader/actions/workflows/linux.yml/badge.svg)
 
-DynamicLoader is an open-source header-only library providing a modern interface to dynamically loaded libraries ("shared objects").
-
-It provides a modern C++ interface built on top of the Linux [dlopen()](https://man7.org/linux/man-pages/man3/dlopen.3.html) API.
+DynamicLoader is a header-only library providing a modern C++ interface to dynamically loaded libraries ("shared objects").
+It is built on top of the Linux [dlopen()](https://man7.org/linux/man-pages/man3/dlopen.3.html) API.
 
 Try DynamicLoader in [Compiler Explorer](https://godbolt.org/z/KvGxYhErh).
 
@@ -36,4 +35,12 @@ try {
 }
 ```
 
-Uses [CPM.cmake](https://github.com/cpm-cmake/CPM.cmake) and [doctest](https://github.com/doctest/doctest).
+## Configuration options
+
+| Name                          | Description                                                           |
+|-------------------------------|-----------------------------------------------------------------------|
+| DynamicLoader_BUILD_DOCS      | Build the documentation (requires [Doxygen](https://www.doxygen.nl/)) |
+| DynamicLoader_BUILD_TESTS     | Build the tests                                                       |
+| DynamicLoader_ENABLE_WARNINGS | Enable compiler warnings                                              |
+
+Uses [CPM.cmake](https://github.com/cpm-cmake/CPM.cmake), [doctest](https://github.com/doctest/doctest), and [Doxygen Awesome](https://github.com/jothepro/doxygen-awesome-css).
