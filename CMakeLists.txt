@@ -56,7 +56,8 @@ if(DynamicLoader_ENABLE_WARNINGS)
       -Wshadow
       -Wsign-conversion
       -Wunused
-      -Wuseless-cast)
+      -Wuseless-cast
+      $<$<CXX_COMPILER_ID:Clang>:-Wno-unknown-warning-option>)
   endif()
 endif()
 

@@ -1,52 +1,72 @@
 name: CI
-
 on:
   push:
     branches: ["main"]
   pull_request:
     branches: ["main"]
-
 env:
   BUILD_TYPE: Release
-
 permissions:
   contents: read
   pages: write
   id-token: write
-
 jobs:
-  build:
-    runs-on: ubuntu-latest
-
+  build_matrix:
+    strategy:
+      matrix:
+        os: [ubuntu-22.04, ubuntu-20.04]
+        cxx: [clang++-12, clang++-13, clang++-14, g++-9, g++-10, g++-11, g++-12]
+        exclude:
+          - os: ubuntu-20.04
+            cxx: clang++-13
+          - os: ubuntu-20.04
+            cxx: clang++-14
+          - os: ubuntu-20.04
+            cxx: g++-11
+          - os: ubuntu-20.04
+            cxx: g++-12
+    runs-on: ${{ matrix.os }}
+    env:
+      CXX: /usr/bin/${{ matrix.cxx }}
     steps:
-      - name: Install packages
-        run: sudo apt-get install -y doxygen graphviz ninja-build
-
+      - name: Install Ninja
+        run: sudo apt-get install -y ninja-build
       - uses: actions/checkout@v3
-
       - name: Configure CMake
-        run: cmake -B ${{github.workspace}}/build -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}} -GNinja -DDOXYGEN_FULL_PATH_NAMES=NO
-
+        run: |
+          cmake -B ${{github.workspace}}/build \
+            -GNinja \
+            -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}} \
+            -DDynamicLoader_BUILD_DOCS=OFF
       - name: Build
-        run: cmake --build ${{github.workspace}}/build --config ${{env.BUILD_TYPE}}
-
+        run: |
+          cmake --build ${{github.workspace}}/build \
+            --config ${{env.BUILD_TYPE}}
       - name: Test
         working-directory: ${{github.workspace}}/build
         run: ctest -C ${{env.BUILD_TYPE}}
-
-      - name: Docs
+  build_docs:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Install Doxygen
+        run: sudo apt-get install -y doxygen graphviz
+      - uses: actions/checkout@v3
+      - name: Configure CMake
+        run: |
+          cmake -B ${{github.workspace}}/build \
+            -DDOXYGEN_FULL_PATH_NAMES=NO
+      - name: Build docs
         env:
           url: ${{ steps.deployment.outputs.page_url }}
-        run: cmake --build ${{github.workspace}}/build --target DynamicLoaderDocs
-
+        run: |
+          cmake --build ${{github.workspace}}/build \
+            --target DynamicLoaderDocs
       - name: Setup Pages
         uses: actions/configure-pages@v2
-
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1
         with:
           path: ${{github.workspace}}/build/docs/html
-
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v1
