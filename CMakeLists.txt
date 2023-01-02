@@ -78,7 +78,9 @@ target_sources(
 set_target_properties(DynamicLoader PROPERTIES VERIFY_INTERFACE_HEADER_SETS ON)
 
 # Installation
-set(DynamicLoader_CONFIG_INSTALL_DIR lib/cmake/DynamicLoader)
+set(DynamicLoader_CONFIG_INSTALL_DIR
+    lib/cmake/DynamicLoader
+    CACHE PATH "Install path for package configs")
 include(CMakePackageConfigHelpers)
 configure_package_config_file(
   ${PROJECT_SOURCE_DIR}/cmake/DynamicLoaderConfig.cmake.in ${PROJECT_BINARY_DIR}/DynamicLoaderConfig.cmake
