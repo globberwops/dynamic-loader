@@ -1,25 +1,34 @@
 {
 	"name": "C++",
 	"build": {
-		"dockerfile": "Dockerfile",
-		"args": {
-			"REINSTALL_CMAKE_VERSION_FROM_SOURCE": "3.21.7"
-		}
+		"dockerfile": "Dockerfile"
 	},
-	"customizations": {
-		"vscode": {
-			"extensions": [
-				"cheshirekow.cmake-format",
-				"redhat.vscode-yaml"
-			],
-			"settings": {
-				"files.associations": {
-					".clang-format": "yaml",
-					".clang-tidy": "yaml",
-					".cmake-format": "yaml",
-					"*.cmake.in": "cmake"
-				}
-			}
+	"capAdd": [
+		"SYS_PTRACE"
+	],
+	"securityOpt": [
+		"seccomp=unconfined"
+	],
+	"extensions": [
+		"cheshirekow.cmake-format",
+		"llvm-vs-code-extensions.vscode-clangd",
+		"ms-vscode.cmake-tools",
+		"ms-vscode.cpptools",
+		"ms-vscode.live-server",
+		"redhat.vscode-yaml"
+	],
+	"settings": {
+		"C_Cpp.intelliSenseEngine": "disabled",
+		"clangd.path": "clangd-15",
+		"files.associations": {
+			".clang-format": "yaml",
+			".clang-tidy": "yaml",
+			".clangd": "yaml",
+			".cmake-format": "yaml",
+			"*.cmake.in": "cmake"
+		},
+		"files.exclude": {
+			"**/.cache": true
 		}
 	}
 }

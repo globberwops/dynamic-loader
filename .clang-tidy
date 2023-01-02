@@ -4,8 +4,12 @@ Checks: >
   clang-analyzer-*,
   clang-diagnostic-*,
   cppcoreguidelines-*,
+  -cppcoreguidelines-pro-bounds-pointer-arithmetic,
+  -cppcoreguidelines-pro-type-reinterpret-cast,
+  -cppcoreguidelines-pro-type-union-access,
   google-*,
   modernize-*,
   performance-*,
+  -performance-no-int-to-ptr,
   readability-*
 FormatStyle: file

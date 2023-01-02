@@ -1,22 +1,22 @@
-FROM mcr.microsoft.com/devcontainers/cpp:0-debian-11
+FROM mcr.microsoft.com/devcontainers/cpp:0-ubuntu-22.04
 
-ARG REINSTALL_CMAKE_VERSION_FROM_SOURCE="none"
-
-# Optionally install the cmake for vcpkg
-COPY ./reinstall-cmake.sh /tmp/
-
-RUN if [ "${REINSTALL_CMAKE_VERSION_FROM_SOURCE}" != "none" ]; then \
-    chmod +x /tmp/reinstall-cmake.sh && /tmp/reinstall-cmake.sh ${REINSTALL_CMAKE_VERSION_FROM_SOURCE}; \
-    fi \
-    && rm -f /tmp/reinstall-cmake.sh
+COPY ./kitware.list ./llvm.list /etc/apt/sources.list.d/
+COPY ./kitware-archive-keyring.gpg ./llvm-snapshot.gpg /usr/share/keyrings/
 
 RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
     && apt-get -y install --no-install-recommends \
-    clang-13 \
-    clang-format-13 \
-    clang-tidy-13 \
-    clang-tools-13 \
-    clangd-13 \
+    clang-15 \
+    clang-format-15 \
+    clang-tidy-15 \
+    clang-tools-15 \
+    clangd-15 \
+    cmake \
+    cmake-curses-gui \
+    doxygen \
+    g++-12 \
+    graphviz \
+    lld-15 \
+    lldb-15 \
     python3-pip
 
 USER vscode

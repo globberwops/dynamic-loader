@@ -9,22 +9,32 @@ parse:
         GITHUB_REPOSITORY: "*"
         OPTIONS: "*"
     doctest_discover_tests:
+      pargs: 1
       kwargs:
         TEST_SPEC: "*"
         EXTRA_ARGS: "*"
-        WORKING_DIRECTORY: "*"
-        TEST_PREFIX: "*"
-        TEST_SUFFIX: "*"
+        WORKING_DIRECTORY: 1
+        TEST_PREFIX: 1
+        TEST_SUFFIX: 1
         PROPERTIES: "*"
         ADD_LABELS: "*"
         TEST_LIST: "*"
-        JUNIT_OUTPUT_DIR: "*"
+        JUNIT_OUTPUT_DIR: 1
+    configure_package_config_file:
+      pargs: 2
+      flags:
+        - NO_SET_AND_CHECK_MACRO
+        - NO_CHECK_REQUIRED_COMPONENTS_MACRO
+      kwargs:
+        INSTALL_DESTINATION: 1
+        PATH_VARS: "*"
+        INSTALL_PREFIX: 1
   override_spec: {}
   vartags: []
   proptags: []
 format:
   disable: false
-  line_width: 80
+  line_width: 120
   tab_size: 2
   use_tabchars: false
   fractional_tab_policy: use-space
