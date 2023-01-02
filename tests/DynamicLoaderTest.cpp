@@ -4,14 +4,14 @@
 #include <filesystem>
 
 #include "DynamicLoader/DynamicLoader.hpp"
-#include "test/Config.hpp"
+#include "tests/Config.hpp"
 
 using dl::DynamicLoader;
 using dl::Options;
 
 namespace
 {
-const auto test_lib_path = std::filesystem::path{kProjectBinaryDir} / "test" / "libDynamicLoaderTestLib.so";
+const auto test_lib_path = std::filesystem::path{kProjectBinaryDir} / "tests" / "libDynamicLoaderTestLib.so";
 } // namespace
 
 TEST_CASE("DynamicLoaderTest, LoadLibDefaultOptions")
