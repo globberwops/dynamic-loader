@@ -16,9 +16,9 @@ set(DOXYGEN_HTML_EXTRA_FILES
     ${doxygen-awesome-css_SOURCE_DIR}/doxygen-awesome-interactive-toc.js
     ${doxygen-awesome-css_SOURCE_DIR}/doxygen-awesome-paragraph-link.js)
 set(DOXYGEN_HTML_EXTRA_STYLESHEET
-    ${doxygen-awesome-css_SOURCE_DIR}/doxygen-awesome-sidebar-only-darkmode-toggle.css
+    ${doxygen-awesome-css_SOURCE_DIR}/doxygen-awesome.css
     ${doxygen-awesome-css_SOURCE_DIR}/doxygen-awesome-sidebar-only.css
-    ${doxygen-awesome-css_SOURCE_DIR}/doxygen-awesome.css)
+    ${doxygen-awesome-css_SOURCE_DIR}/doxygen-awesome-sidebar-only-darkmode-toggle.css)
 set(DOXYGEN_HTML_HEADER header.html)
 set(DOXYGEN_USE_MDFILE_AS_MAINPAGE README.md)
 
