@@ -1,6 +1,6 @@
 # DynamicLoader
 
-![Linux](https://github.com/globberwops/dynamic-loader/actions/workflows/linux.yml/badge.svg)
+![CI](https://github.com/globberwops/dynamic-loader/actions/workflows/ci.yml/badge.svg)
 
 DynamicLoader is a header-only library providing a modern C++ interface to dynamically loaded libraries ("shared objects").
 It is built on top of the Linux [dlopen()](https://man7.org/linux/man-pages/man3/dlopen.3.html) API.
