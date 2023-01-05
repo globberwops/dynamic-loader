@@ -37,7 +37,7 @@ try {
 }
 ```
 
-## Configuration options
+## Configuration Options
 
 | Name                               | Description                      | Default                   |
 |------------------------------------|----------------------------------|---------------------------|
@@ -78,7 +78,7 @@ Please find the HTML documentation in `build/docs/html`
 
 ## Usage
 
-DynamicLoader can be integrated in your project in several ways.
+DynamicLoader can be integrated into your project in several ways.
 
 ### CMake FetchContent
 
@@ -94,7 +94,7 @@ FetchContent_MakeAvailable(dynamic-loader)
 target_link_libraries(<your-target> PRIVATE DynamicLoader::DynamicLoader)
 ```
 
-### Git submodules
+### Git Submodule
 
 ```Bash
 git submodule add https://github.com/globberwops/dynamic-loader.git third_party/dynamic-loader
@@ -111,7 +111,7 @@ target_link_libraries(<your-target> PRIVATE DynamicLoader::DynamicLoader)
 ### Vcpkg
 
 ```Bash
-vcpkg install dynamic-loader
+vcpkg install globberwops-dynamic-loader
 ```
 
 ```CMake

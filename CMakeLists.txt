@@ -77,6 +77,7 @@ target_sources(
             FILES
             include/DynamicLoader/DynamicLoader.hpp)
 set_target_properties(DynamicLoader PROPERTIES VERIFY_INTERFACE_HEADER_SETS ON)
+target_include_directories(DynamicLoader INTERFACE $<INSTALL_INTERFACE:include>)
 
 # Installation
 set(DynamicLoader_CONFIG_INSTALL_DIR
